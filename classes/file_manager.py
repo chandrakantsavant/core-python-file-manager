@@ -23,8 +23,8 @@ class FileManager:
             self.createFile()
         elif input == 2:
             self.editFile()
-        # elif input == 3:
-        #     self.editFile()
+        elif input == 3:
+            self.renameFile()
         # elif input == 4:
         #     self.deleteFile()
         elif input == 5:
@@ -91,6 +91,28 @@ class FileManager:
 
         print("Your file is edited successfully with provided content")
         self.showPrompt()
+
+    def renameFile(self):
+        print('Following is the list of existing file....')
+        self.showAllFiles()
+        print("------------------------------------------")
+        getFileName = input("Enter file name to rename:- ")
+        filePath = Path(self.basePath+getFileName)
+        
+
+        try:
+            newName = str(input("Enter New file name:- "))
+            newNameWithPath = filePath.with_name(newName)
+            filePath.rename(newNameWithPath)
+            print("File renamed successfully")
+            self.showPrompt()
+        except Exception as err:
+            print(f"Something went wrong and error is {err}, Please try from start")
+            self.showPrompt()
+    
+
+
+
 
     def getFileContent(self, filePath):
         try:

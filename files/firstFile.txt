@@ -1,3 +1,0 @@
-Hey, this is first file i created, and this is a dummy text
-# This is a new content I am going to add in existing content
-# Third time i am editing this file
